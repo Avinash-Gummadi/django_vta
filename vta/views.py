@@ -8,5 +8,6 @@ def generateReplay(request):
     if request.method == 'POST':
         input_msg = request.POST['input_msg']
         reply = ai_work.keyboardInput(input_msg)
+        print(reply)
         return HttpResponse(reply)
     return HttpResponse("Not a valid page")

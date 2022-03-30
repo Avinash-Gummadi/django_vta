@@ -48,7 +48,6 @@ def chat(text):
 		result = "Current Time is: " + dt.currentTime()
 	elif isContain(text, ['date','today','day','month']):
 		result = dt.currentDate()
-
 	return result
 
 data = json.load(open('vta/extrafiles/NormalChat.json', encoding='utf-8'))
