@@ -9,7 +9,6 @@ def isContain(txt, lst):
 			return True
 	return False
 
-
 def main(text):
 	if 'my name' in text:return 'Avinash'
 	if isContain(text, ['time','date']):return normalChat.chat(text)
@@ -48,11 +47,6 @@ def main(text):
 		return result
 	else:
 		return f"I didn't recognise {text}. If you like to google it <a href='https://www.google.com/search?q={text}' target='_blank'>click here</a>"
-
-
-
-
-
 
 def keyboardInput(input_msg):
 	user_input = input_msg.lower()

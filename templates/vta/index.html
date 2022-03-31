@@ -29,15 +29,26 @@
     <link rel="stylesheet" href="{% static 'vta_assets/css/index.css' %}" />
   </head>
   <body>
+    <div id="chat-circle" class="btn btn-raised">
+      <div id="chat-overlay"></div>
+      <i class="bi bi-robot"></i>
+    </div>
     <section class="avenue-messenger">
       <div class="menu">
-        <div class="items">
+        <!-- <div class="items">
           <span>
             <a href="#" title="Minimize">&mdash;</a><br />
             <a href="#" title="End Chat">&#10005;</a>
           </span>
-        </div>
-        <div class="button">...</div>
+        </div> -->
+        <!-- <div class="extra_button more_options" style="display: none">...</div> -->
+        <span
+          class="bi bi-x-circle extra_button close_btn chat-box-toggle"
+        ></span>
+        <span
+          class="bi bi-volume-up-fill extra_button sound_btn"
+          data-attr="unmute"
+        ></span>
       </div>
       <div class="agent-face">
         <div class="half">
@@ -78,7 +89,19 @@
         </div>
       </div>
     </section>
+    <script type="text/javascript">
+      $(function () {
+        $("#chat-circle").click(function () {
+          $("#chat-circle").toggle("scale");
+          $(".avenue-messenger").toggle("scale");
+        });
 
+        $(".chat-box-toggle").click(function () {
+          $("#chat-circle").toggle("scale");
+          $(".avenue-messenger").toggle("scale");
+        });
+      });
+    </script>
     <script type="text/javascript">
       var $messages = $(".messages-content"),
         d,
@@ -117,9 +140,21 @@
           );
         }
       }
-
+      // mute or unmute
+      $(".sound_btn").click(function () {
+        if ($(".sound_btn").hasClass("bi-volume-up-fill")) {
+          $(".sound_btn").removeClass("bi-volume-up-fill");
+          $(".sound_btn").addClass("bi-volume-mute-fill");
+          $(".sound_btn").attr("data-attr", "mute");
+        } else if ($(".sound_btn").hasClass("bi-volume-mute-fill")) {
+          $(".sound_btn").removeClass("bi-volume-mute-fill");
+          $(".sound_btn").addClass("bi-volume-up-fill");
+          $(".sound_btn").attr("data-attr", "unmute");
+        }
+      });
       function insertMessage() {
         msg = $(".message-input").val();
+        soundstatus = $(".sound_btn").attr("data-attr");
         if ($.trim(msg) == "") {
           return false;
         }
@@ -136,6 +171,7 @@
             url: "/ai/",
             data: {
               input_msg: msg,
+              soundstatus: soundstatus,
               csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
             },
             success: function (data) {
@@ -219,10 +255,10 @@
         }, 1000 + Math.random() * 20 * 100);
       }
 
-      $(".button").click(function () {
-        $(".menu .items span").toggleClass("active");
-        $(".menu .button").toggleClass("active");
-      });
+      // $(".more_options").click(function () {
+      //   $(".menu .items span").toggleClass("active");
+      //   $(".menu .more_options").toggleClass("active");
+      // });
     </script>
   </body>
 </html>

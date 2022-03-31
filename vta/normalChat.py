@@ -2,6 +2,7 @@ from difflib import get_close_matches
 import json
 from random import choice
 import datetime
+import webbrowser
 
 class DateTime:
 	def currentTime(self):
@@ -50,16 +51,26 @@ def chat(text):
 		result = dt.currentDate()
 	return result
 
+websites = json.load(open('vta/extrafiles/websites.json', encoding='utf-8'))
+def websitesopen(query):
+	query = query.replace('open','')
+	if query in websites:
+		response = websites[query][0]
+	else:
+		query = get_close_matches(query, websites.keys(), n=2, cutoff=0.5)
+		if len(query)==0: return "None"
+		response = choice(websites[query[0]])
+	print(response)
+	webbrowser.open(response)
+	return response
 data = json.load(open('vta/extrafiles/NormalChat.json', encoding='utf-8'))
-
 def reply(query):
 	if query in data:
 		response =  data[query]
 	else:
-		query = get_close_matches(query, data.keys(), n=2, cutoff=0.6)
-		if len(query)==0: return "None"
-		return choice(data[query[0]])
-
+		result = get_close_matches(query, data.keys(), n=2, cutoff=0.6)
+		if len(result)==0: return websitesopen(query)
+		return choice(data[result[0]])
 	return choice(response)
 
 def lang_translate(text,language):

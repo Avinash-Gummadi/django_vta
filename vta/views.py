@@ -12,15 +12,19 @@ def index(request):
 def generateReplay(request):
     if request.method == 'POST':
         input_msg = request.POST['input_msg']
+        soundstatus = request.POST['soundstatus']
         reply = ai_work.keyboardInput(input_msg)
         print(reply)
-        try:
-        	engine = pyttsx3.init()
-        except Exception as e:
-        	print(e)
-        engine.say(reply)
-        engine.runAndWait()
-        del engine
+        if soundstatus == 'unmute':
+            try:
+            	engine = pyttsx3.init()
+            except Exception as e:
+            	print(e)
+            engine.say(reply)
+            engine.runAndWait()
+            del engine
+        elif soundstatus == 'mute':
+            pass
         return HttpResponse(reply)
     return HttpResponse("Not a valid page")
 
