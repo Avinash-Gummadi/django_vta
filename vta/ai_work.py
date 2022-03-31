@@ -18,10 +18,10 @@ def main(text):
 		msg = "<br><b>Latest news.....</b> <br><br>"
 
 		headlines,headlineLinks = webScrapping.latestNews(2)
-		for idx,head in enumerate(headlines): 
+		for idx,head in enumerate(headlines):
 			msg += f'{idx+1}. {head} <br>'
-		return msg	
-	# print(text)	
+		return msg
+	# print(text)
 	#,'log','value of','root of','math',,'binary','hexadecimal','octal','shift','sin','cos','tan','cosec','sec','cot']):
 	if isContain(text, ['factorial of ']):
 				num = text.split('factorial of')[1]
@@ -43,6 +43,16 @@ def main(text):
 		return math_function.trigonometry(text)
 	if isContain(text,['bin','hex','oct']):
 		return math_function.conversions(text)
+	result = normalChat.reply(text)
+	if result != "None":
+		return result
+	else:
+		return f"I didn't recognise {text}. If you like to google it <a href='https://www.google.com/search?q={text}' target='_blank'>click here</a>"
+
+
+
+
+
 
 def keyboardInput(input_msg):
 	user_input = input_msg.lower()

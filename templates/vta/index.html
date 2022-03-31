@@ -12,6 +12,10 @@
     />
     <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css"
     />
     <script
@@ -25,7 +29,6 @@
     <link rel="stylesheet" href="{% static 'vta_assets/css/index.css' %}" />
   </head>
   <body>
-    <audio src="{{obj}}" controls></audio>
     <section class="avenue-messenger">
       <div class="menu">
         <div class="items">
@@ -60,7 +63,18 @@
             placeholder="Type message..."
           ></textarea>
           {% csrf_token %}
-          <button type="submit" class="message-submit">Send</button>
+          <button
+            type="submit"
+            id="message-submit-id"
+            class="message-submit send-mic send-btn"
+          >
+            Send
+          </button>
+          <button
+            type="button"
+            class="bi bi-mic-mute-fill send-mic mic-btn"
+            id="mic_id"
+          ></button>
         </div>
       </div>
     </section>
@@ -139,6 +153,40 @@
       $(".message-submit").click(function () {
         insertMessage();
       });
+      $("#mic_id").click(function () {
+        var speech;
+        if ($("#mic_id").hasClass("bi-mic-fill")) {
+          $("#mic_id").removeClass("bi-mic-fill");
+          $("#mic_id").addClass("bi-mic-mute-fill");
+        } else if ($("#mic_id").hasClass("bi-mic-mute-fill")) {
+          $("#mic_id").removeClass("bi-mic-mute-fill");
+          $("#mic_id").addClass("bi-mic-fill");
+          speech = "1";
+          $.ajax({
+            type: "POST",
+            url: "/speechToText/",
+            data: {
+              speech: speech,
+              csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+            },
+            success: function (data) {
+              if (data == "1") {
+                fakeMessage(
+                  "I didn't understand what you are saying, can you please say it again!"
+                );
+              } else {
+                $(".message-input").val(data);
+                insertMessage();
+              }
+              $("#mic_id").click();
+            },
+            error: function (data) {
+              console.log(data);
+              fakeMessage("Something wrong");
+            },
+          });
+        }
+      });
 
       $(window).on("keydown", function (e) {
         if (e.which == 13) {
@@ -146,24 +194,6 @@
           return false;
         }
       });
-
-      var Fake = [
-        "Hi there, I'm Jesse and you?",
-        "Nice to meet you",
-        "How are you?",
-        "Not too bad, thanks",
-        "What do you do?",
-        "That's awesome",
-        "Codepen is a nice place to stay",
-        "I think you're a nice person",
-        "Why do you think that?",
-        "Can you explain?",
-        "Anyway I've gotta go now",
-        "It was a pleasure chat with you",
-        "Time to make a new codepen",
-        "Bye",
-        ":)",
-      ];
 
       function fakeMessage(reply) {
         if ($(".message-input").val() != "") {

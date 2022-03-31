@@ -314,23 +314,32 @@ Message Box
 .message-box textarea:focus:-webkit-placeholder {
   color: transparent;
 }
-.message-box .message-submit {
+.message-box .send-mic {
   position: absolute;
   z-index: 1;
   top: 9px;
-  right: 10px;
+  /* right: 10px; */
   color: #4a90e2;
   border: none;
   /* background: #c29d5f;*/
   background: #fff;
-  font-size: 12px;
+  /* font-size: 12px; */
   text-transform: uppercase;
   line-height: 1;
   padding: 6px 10px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   outline: none !important;
   transition: background 0.2s ease;
   cursor: pointer;
+}
+.send-btn {
+  right: 34px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+.mic-btn {
+  border-radius: 50%;
+  right: 10px;
 }
 .message-box .message-submit:hover {
   background: #fff;
