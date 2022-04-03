@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+    ></script>
+  </head>
+  <body>
+    {% for question in questions %}
+    <form
+      id="quiz_ques_form"
+      action="/home/quiz/{{question.subject}}/"
+      method="post"
+    >
+      {% csrf_token %}
+      <h1>{{question.subject}}</h1>
+      <h4>{{question.question}}</h4>
+      <input
+        type="radio"
+        name="{{question.id}}"
+        value="A"
+      />{{question.optionA}}
+      <input
+        type="radio"
+        name="{{question.id}}"
+        value="B"
+      />{{question.optionB}}
+      <input
+        type="radio"
+        name="{{question.id}}"
+        value="C"
+      />{{question.optionC}}
+      <input
+        type="radio"
+        name="{{question.id}}"
+        value="D"
+      />{{question.optionD}}
+      <!-- <button type="button" name="button" id="view_answer">View Answer</button>
+    <p id="show_ans"></p>
+    <script type="text/javascript">
+      $("#view_answer").click(function () {
+        $("#show_ans").text("{{question.answer}}.{{question.optionC}}");
+      });
+    </script> -->
+      <!--  -->
+    </form>
+    {% endfor %}
+    <button type="submit" name="button" form="quiz_ques_form">Submit</button>
+  </body>
+</html>

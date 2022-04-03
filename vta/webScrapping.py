@@ -260,6 +260,14 @@ def googleSearch(query):
 	webbrowser.open("https://www.google.com/search?q=" + query)
 	return "Here you go..."
 
+def quiz(query):
+	remove_list = ['test','quiz','exam','assessment','examination','examine','on','in','the','is','for','from',' ']
+	for word in remove_list:
+		if word in query:
+			query = query.replace(word,'')
+	print(query)
+	webbrowser.open("http://127.0.0.1:8000/home/quiz/" + query)
+	return "All the best!"
 # def sendWhatsapp(phone_no='',message=''):
 # 	phone_no = '+91' + str(phone_no)
 # 	webbrowser.open('https://web.whatsapp.com/send?phone='+phone_no+'&text='+message)

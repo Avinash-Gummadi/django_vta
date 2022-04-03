@@ -6,17 +6,18 @@ import speech_recognition as sr
 from django.contrib.auth.models import User
 from .models import UploadQuestion, User
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import login_required
 # import gtts
 # Create your views here.
-def auth(user):
-   return user.is_authenticated
+# def auth(user):
+#    return user.is_authenticated
 
-@user_passes_test(auth,login_url='/')
+@login_required(login_url='/')
 def index(request):
     return render(request,'vta/index.html')
 
-@user_passes_test(auth,login_url='/')
+# @user_passes_test(auth,login_url='/')
+@login_required(login_url='/')
 def quizpaper(request):
     return render(request,'vta/quizpaper.html')
 def uploadquestion(request):
@@ -28,8 +29,23 @@ def uploadquestion(request):
         optionC = request.POST['optionc']
         optionD = request.POST['optiond']
         correct_ans = request.POST['answerid']
-        print(subject_name,question_text,optionA,optionB,optionC,optionD,correct_ans)
+        UploadQuestion.objects.create(subject=subject_name,question=question_text,optionA=optionA,optionB=optionB,optionC=optionC,optionD=optionD,answer=correct_ans)
     return HttpResponse("Not a valid page")
+
+@login_required(login_url='/')
+def quiz(request,subject):
+    questions = UploadQuestion.objects.filter(subject=subject)
+    count = 0
+    if request.method == "POST":
+        print("INSIDE POST")
+        for question in questions:
+            print(type(question.id))
+            ans = request.POST[str(question.id)]
+            print(ans)
+            if ans == question.answer:
+                count+=1
+        return render(request,'vta/results.html',{'total':count})
+    return render(request,'vta/quizpage.html',{'questions': questions})
 
 def register(request):
     username_error = ""

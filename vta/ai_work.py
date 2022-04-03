@@ -62,8 +62,11 @@ def main(text):
 	if isContain(text, ['wiki','wikipedia','who is']):
 		return webScrapping.wikiResult(text)
 
-	if isContain(text,['joke','jokes','comedy']):
+	if isContain(text, ['joke','jokes','comedy']):
 		return webScrapping.jokes()
+
+	if isContain(text, ['test','quiz','exam','assessment','examination','examine']):
+		return webScrapping.quiz(text)
 
 	result = normalChat.reply(text)
 	if result != "None":

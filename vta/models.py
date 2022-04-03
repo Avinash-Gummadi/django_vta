@@ -8,8 +8,8 @@ class User(AbstractUser):
     email = models.EmailField(max_length=254, unique=True)
 
 class UploadQuestion(models.Model):
-    subjects = (('Programming','Programming'),('DBMS','DBMS'),('Oops','Oops'),('Python','Python'))
-    optionsList = (('optionA','A'),('optionB','B'),('optionC','C'),('optionD','D'))
+    subjects = (('programming','Programming'),('dbms','DBMS'),('oops','Oops'),('python','Python'))
+    optionsList = (('A','A'),('B','B'),('C','C'),('D','D'))
     subject = models.CharField(choices = subjects, max_length=100, blank=False)
     question = models.TextField(unique=False, blank=False)
     optionA = models.CharField(max_length=50, blank=False)
