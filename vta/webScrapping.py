@@ -2,10 +2,11 @@ import wikipedia
 import webbrowser
 import requests
 from bs4 import BeautifulSoup
-import threading
-import smtplib
-import urllib.request
-import os
+# import threading
+# import smtplib
+# import urllib.request
+# import os
+# from youtube_search import YoutubeSearch
 # from geopy.geocoders import Nominatim
 # from geopy.distance import great_circle
 
@@ -130,7 +131,7 @@ def wikiResult(query):
 # 	def weather(self):
 # 		from datetime import datetime
 # 		today = datetime.today().strftime('%A')
-# 		self.speakResult = "Currently in " + self.city + ", its " + self.tempValue + " degree, with a " + self.currCondition 
+# 		self.speakResult = "Currently in " + self.city + ", its " + self.tempValue + " degree, with a " + self.currCondition
 # 		return [self.tempValue, self.currCondition, today, self.city, self.speakResult]
 
 # c = COVID()
@@ -147,7 +148,7 @@ def wikiResult(query):
 
 # ### COVID ###
 # def covid(query):
-	
+
 # 	if "india" in query: india_bool = True
 # 	else: india_bool = False
 
@@ -159,13 +160,13 @@ def wikiResult(query):
 
 # 	elif "prevent" in query or "measure" in query or "precaution" in query:
 # 		return ["Here are the some of preventions from COVID-19:", c.prevention()]
-	
+
 # 	elif "recov" in query:
 # 		return "Total Recovery is: " + c.totalRecovery(india_bool)
-	
+
 # 	elif "death" in query:
 # 		return "Total Deaths are: " + c.totalDeaths(india_bool)
-	
+
 # 	else:
 # 		return "Total Cases are: " + c.totalCases(india_bool)
 
@@ -222,7 +223,7 @@ def giveDirections(startingPoint, destinationPoint):
 def openWebsite(url='https://www.google.com/'):
 	webbrowser.open(url)
 
-"""def jokes():
+def jokes():
 	URL = 'https://icanhazdadjoke.com/'
 	result = requests.get(URL)
 	src = result.content
@@ -234,18 +235,17 @@ def openWebsite(url='https://www.google.com/'):
 		return p.text
 	except Exception as e:
 		raise e
-"""
 
-def youtube(query):
-	from youtube_search import YoutubeSearch
-	query = query.replace('play',' ')
-	query = query.replace('on youtube',' ')
-	query = query.replace('youtube',' ')
-	print("Pahuch Gya")
-	results = YoutubeSearch(query,max_results=1).to_dict()
-	print("Link mil gya")
-	webbrowser.open('https://www.youtube.com/watch?v=' + results[0]['id'])
-	return "Enjoy Sir..."
+# def youtube(query):
+# 	query = query.replace('play','')
+# 	query = query.replace('on youtube','')
+# 	query = query.replace('youtube','')
+# 	query = query.replace(' ','')
+# 	results = YoutubeSearch(query, max_results=1).to_dict()
+# 	print(results, query)
+# 	print(query.split(" "))
+# 	webbrowser.open('https://www.youtube.com/watch?v=' + results[0]['id'])
+# 	return "Enjoy Sir..."
 
 
 def googleSearch(query):
@@ -255,50 +255,52 @@ def googleSearch(query):
 	query = query.replace('image','')
 	query = query.replace('search','')
 	query = query.replace('show','')
+	query = query.replace('google','')
+	query = query.replace('browse','')
 	webbrowser.open("https://www.google.com/search?q=" + query)
 	return "Here you go..."
 
-def sendWhatsapp(phone_no='',message=''):
-	phone_no = '+91' + str(phone_no)
-	webbrowser.open('https://web.whatsapp.com/send?phone='+phone_no+'&text='+message)
-	import time
-	from pynput.keyboard import Key, Controller
-	time.sleep(10)
-	k = Controller()
-	k.press(Key.enter)
+# def sendWhatsapp(phone_no='',message=''):
+# 	phone_no = '+91' + str(phone_no)
+# 	webbrowser.open('https://web.whatsapp.com/send?phone='+phone_no+'&text='+message)
+# 	import time
+# 	from pynput.keyboard import Key, Controller
+# 	time.sleep(10)
+# 	k = Controller()
+# 	k.press(Key.enter)
 
-def email(rec_email=None, text="Hello, It's F.R.I.D.A.Y. here...", sub='F.R.I.D.A.Y.'):
-	if '@gmail.com' not in rec_email: return
-	s = smtplib.SMTP('smtp.gmail.com', 587)
-	s.starttls()
-	s.login("senderEmail", "senderPassword") # eg, abc@gmail.com (email) and ****(pass)
-	message = 'Subject: {}\n\n{}'.format(sub, text)
-	s.sendmail("senderEmail", rec_email, message)
-	print("Sent")
-	s.quit()
+# def email(rec_email=None, text="Hello, It's F.R.I.D.A.Y. here...", sub='F.R.I.D.A.Y.'):
+# 	if '@gmail.com' not in rec_email: return
+# 	s = smtplib.SMTP('smtp.gmail.com', 587)
+# 	s.starttls()
+# 	s.login("senderEmail", "senderPassword") # eg, abc@gmail.com (email) and ****(pass)
+# 	message = 'Subject: {}\n\n{}'.format(sub, text)
+# 	s.sendmail("senderEmail", rec_email, message)
+# 	print("Sent")
+# 	s.quit()
 
 
-def downloadImage(query, n=4):
-	query = query.replace('images','')
-	query = query.replace('image','')
-	query = query.replace('search','')
-	query = query.replace('show','')
-	URL = "https://www.google.com/search?tbm=isch&q=" + query
-	result = requests.get(URL)
-	src = result.content
-
-	soup = BeautifulSoup(src, 'html.parser')
-	imgTags = soup.find_all('img', class_='yWs4tf') # old class name -> t0fcAb (Update this)
-
-	if os.path.exists('Downloads')==False:
-		os.mkdir('Downloads')
-
-	count=0
-	for i in imgTags:
-		if count==n: break
-		try:
-			urllib.request.urlretrieve(i['src'], 'Downloads/' + str(count) + '.jpg')
-			count+=1
-			print('Downloaded', count)
-		except Exception as e:
-			raise e
+# def downloadImage(query, n=4):
+# 	query = query.replace('images','')
+# 	query = query.replace('image','')
+# 	query = query.replace('search','')
+# 	query = query.replace('show','')
+# 	URL = "https://www.google.com/search?tbm=isch&q=" + query
+# 	result = requests.get(URL)
+# 	src = result.content
+#
+# 	soup = BeautifulSoup(src, 'html.parser')
+# 	imgTags = soup.find_all('img', class_='yWs4tf') # old class name -> t0fcAb (Update this)
+#
+# 	if os.path.exists('Downloads')==False:
+# 		os.mkdir('Downloads')
+#
+# 	count=0
+# 	for i in imgTags:
+# 		if count==n: break
+# 		try:
+# 			urllib.request.urlretrieve(i['src'], 'Downloads/' + str(count) + '.jpg')
+# 			count+=1
+# 			print('Downloaded', count)
+# 		except Exception as e:
+# 			raise e

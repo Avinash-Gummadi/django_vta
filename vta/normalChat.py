@@ -73,11 +73,11 @@ def reply(query):
 		return choice(data[result[0]])
 	return choice(response)
 
-def lang_translate(text,language):
-	from googletrans import Translator,LANGUAGES
-	if language in LANGUAGES.values():
-		translator = Translator()
-		result = translator.translate(text, src='en', dest=language)
-		return result
-	else:
-		return "None"
+# def lang_translate(text,language):
+# 	from googletrans import Translator,LANGUAGES
+# 	if language in LANGUAGES.values():
+# 		translator = Translator()
+# 		result = translator.translate(text, src='en', dest=language)
+# 		return result
+# 	else:
+# 		return "None"
