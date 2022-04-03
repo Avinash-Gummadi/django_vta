@@ -17,12 +17,20 @@ def index(request):
     return render(request,'vta/index.html')
 
 def register(request):
+    username_error = ""
+    email_error = ""
     if request.method == "POST":
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         person_name = request.POST['person_name']
         account_type = request.POST['account_type']
+        if User.objects.filter(username=username).exists():
+            username_error = "Username already exists"
+            return render(request,'register.html',{'username_error':username_error,'email_error':email_error})
+        elif User.objects.filter(email=email).exists():
+            email_error = "Email already exists"
+            return render(request,'register.html',{'username_error':username_error,'email_error':email_error})
         user = User.objects.create_user(username, email, password)
         user.person_name = person_name
         if account_type == "faculty":
@@ -32,7 +40,7 @@ def register(request):
         user.save()
         login(request, user)
         return redirect('/home/')
-    return render(request,'register.html')
+    return render(request,'register.html',{'username_error':username_error,'email_error':email_error})
 
 # def teacherRegister(request):
 #     return render(request,'teacherRegister.html')

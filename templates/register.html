@@ -6,7 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="{% static 'vta_assets/css/auth.css' %}" />
   </head>
-  <body>
+  <body style="overflow: hidden">
     <div class="scroll-down">
       SCROLL DOWN
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -16,7 +16,7 @@
       </svg>
     </div>
     <div class="container"></div>
-    <div class="modal">
+    <div class="modal is-open">
       <div class="modal-container">
         <div class="modal-left">
           <h1 class="modal-title">Welcome!</h1>
@@ -40,10 +40,12 @@
                 id="username"
                 placeholder="Username"
               />
+              <span style="color: #f00">{{username_error}}</span>
             </div>
             <div class="input-block">
               <label for="email" class="input-label">Email</label>
               <input type="email" name="email" id="email" placeholder="Email" />
+              <span style="color: #f00">{{email_error}}</span>
             </div>
             <div class="input-block">
               <label for="password" class="input-label">Password</label>
