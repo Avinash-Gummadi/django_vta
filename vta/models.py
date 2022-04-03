@@ -1,5 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
 # Create your models here.
+class User(AbstractUser):
+    is_faculty = models.BooleanField(default=False)
+    person_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=254, unique=True)
+
 class UploadQuestion(models.Model):
     subjects = (('Programming','Programming'),('DBMS','DBMS'),('Oops','Oops'),('Python','Python'))
     optionsList = (('optionA','A'),('optionB','B'),('optionC','C'),('optionD','D'))

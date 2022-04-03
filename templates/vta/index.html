@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{% static 'vta_assets/css/index.css' %}" />
   </head>
   <body>
+    <a href="/logout">LogOut</a>
     <div id="chat-circle" class="btn btn-raised">
       <div id="chat-overlay"></div>
       <i class="bi bi-robot"></i>
@@ -46,8 +47,8 @@
           class="bi bi-x-circle extra_button close_btn chat-box-toggle"
         ></span>
         <span
-          class="bi bi-volume-up-fill extra_button sound_btn"
-          data-attr="unmute"
+          class="bi bi-volume-mute-fill extra_button sound_btn"
+          data-attr="mute"
         ></span>
       </div>
       <div class="agent-face">

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'vta',
 ]
 
+AUTH_USER_MODEL = "vta.User"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
