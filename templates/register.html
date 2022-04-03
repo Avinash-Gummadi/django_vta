@@ -30,6 +30,7 @@
                 name="person_name"
                 id="person_name"
                 placeholder="Full Name"
+                required
               />
             </div>
             <div class="input-block">
@@ -39,12 +40,19 @@
                 name="username"
                 id="username"
                 placeholder="Username"
+                required
               />
               <span style="color: #f00">{{username_error}}</span>
             </div>
             <div class="input-block">
               <label for="email" class="input-label">Email</label>
-              <input type="email" name="email" id="email" placeholder="Email" />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+              />
               <span style="color: #f00">{{email_error}}</span>
             </div>
             <div class="input-block">
@@ -54,6 +62,7 @@
                 name="password"
                 id="password"
                 placeholder="Password"
+                required
               />
             </div>
             <div class="modal-buttons">
@@ -61,9 +70,10 @@
                 name="account_type"
                 id="account_type"
                 style="padding: 5px; border-radius: 4px"
+                required
               >
                 <option value="faculty">Faculty</option>
-                <option value="student">Student</option>
+                <option value="student" selected>Student</option>
               </select>
               <button class="input-button" type="submit">Register</button>
             </div>

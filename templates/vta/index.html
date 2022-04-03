@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="{% static 'vta_assets/css/index.css' %}" />
   </head>
   <body>
+    <h1>Welcome {{ user.person_name }}</h1>
+    {% if user.is_faculty %}
+    <a href="/home/quizpaper/">Add Questions</a><br /><br />
+    {% endif %}
     <a href="/logout">LogOut</a>
     <div id="chat-circle" class="btn btn-raised">
       <div id="chat-overlay"></div>

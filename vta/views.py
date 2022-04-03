@@ -16,6 +16,21 @@ def auth(user):
 def index(request):
     return render(request,'vta/index.html')
 
+@user_passes_test(auth,login_url='/')
+def quizpaper(request):
+    return render(request,'vta/quizpaper.html')
+def uploadquestion(request):
+    if request.method == "POST":
+        subject_name = request.POST['subjectid']
+        question_text = request.POST['questionid']
+        optionA = request.POST['optiona']
+        optionB = request.POST['optionb']
+        optionC = request.POST['optionc']
+        optionD = request.POST['optiond']
+        correct_ans = request.POST['answerid']
+        print(subject_name,question_text,optionA,optionB,optionC,optionD,correct_ans)
+    return HttpResponse("Not a valid page")
+
 def register(request):
     username_error = ""
     email_error = ""
