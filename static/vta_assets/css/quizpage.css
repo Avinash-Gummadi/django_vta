@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+    background-color: rgb(225, 235, 243);
+    font-family: 'Montserrat', sans-serif;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  body {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+  }
+  .inProgress {
+    margin-top: 8vh;
+  }
+  
+  .inProgressHeading {
+    font-size: xx-large;
+    font-weight: 600;
+  }
+  .question{
+    font-size: x-large;
+    font-weight: 600;
+  }
