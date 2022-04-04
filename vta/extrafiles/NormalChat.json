@@ -1,149 +1,141 @@
 {
-	"hi": [
-		"Hi, Glad to meet you",
-		"Hi, Nice to meet you",
-		"Hi, How are you",
-		"Hello",
-		"Hi, Welcome",
-		"Hello, Welcome"
-	],
-	"how are you": [
-		"Hey, I'm Good !",
-		"I'm good",
-		"I'm good, what about you?",
-		"I'm fine, hope you're also fine",
-		"Good, how about you?",
-		"Doing fine, and you?",
-		"I'm doing great",
-		"I'm doing Well"
-	],
-	"what is your name": [
-		"My name is V.T.A, I'm your Assistant",
-		"My name is V.T.A"
-	],
-	"who are you": [
-		"I'm your Personal Assistant",
-		"Hey, I'm your Personal Assistant",
-		"You know me right! I'm your Personal Assistant",
-		"You developed me, so you must know who I am",
-		"Did I forget to introduce myself? I'm your Personal Assistant"
-	],
-	"tell me something": [
-		"What you love to hear from me?",
-		"I have nothing to say...",
-		"Hmm, you can ask me anything",
-		"Hmm, you can ask me to tell a joke"
-	],
-	"thank you": [
-		"Thank You",
-		"Thank you so much",
-		"Why are you saying thank you?",
-		"My Pleasure",
-		"You're welcome",
-		"Welcome"
-	],
-	"hello": [
-		"Hello",
-		"Hello, how are you?"
-	],
-	"i am fine": [
-		"Hope you're fine",
-		"Good to know that you are fine",
-		"Good to know"
-	],
-	"are you robot": [
-		"Of course I'm a kind of Robot",
-		"I'm your friend",
-		"Yes I'm a robot, but I'm a good one"
-	],
-	"i have a question": [
-		"Ask me",
-		"Ask me, I can help you",
-		"Don't hesitate, ask me",
-		"You can always ask me"
-	],
-	"your birthday": [
-		"I don't celebrate my Birthday",
-		"My birthday is on 26th April"
-	],
-	"what is your age": [
-		"I'm a robot, I don't have age",
-		"I'm too young, every day my age becomes 1"
-	],
-	"how old are you": [
-		"I'm too young, every day my age becomes 1",
-		"I'm a robot, I don't have age"
-	],
-	"you are funny": [
-		"Good to know, that I'm funny - Haha !",
-		"You think I'm funny",
-		"Ya, I'm so funny",
-		"I'm funny and can also make you laugh, Just ask me to tell a Joke"
-	],
-	"which colour you like": [
-		"I like all the 7 Colors of a rainbow",
-		"All Colors are my favorite"
-	],
-	"do you love me": [
-		"Ya, I love you so much",
-		"Ofcourse, I love you",
-		"We're best friends"
-	],
-	"are you single": [
-		"Haha, I'm always be single",
-		"I'm your Assistant, and I don't want any relationship",
-		"I'm only for you"
-	],
-	"you are smart": [
-		"Yes, I'm smart",
-		"Of course I'm smart",
-		"I'm a program, so I'm smart"
-	],
-	"i am really sorry": [
-		"It's Ok",
-		"No problem"
-	],
-	"are you my friend": [
-		"Yes, I'm your friend",
-		"We both are friends"
-	],
-	"i am alone": [
-		"Don'f feel lonely. I'm always with You",
-		"I can make you feel happy, Just say tell me a joke"
-	],
-	"i like your voice": [
-		"Hope you love it...",
-		"Thanks, I think this voice suits you the most",
-		"Thank You So Much",
-		"Ohh, that's good to know"
-	],
-	"what is blockchain": [
-	  "Blockchain is a cryptographically secure, open, distributed ledger. A distributed public ledger is a database that is stored and updated independently by each node in the blockchain."
-	  ],
-	 "what is bitcoin":[
-	   "Bitcoin is a digital currency which is used to send and receive money across the world in a decentralized manner with minimum transfer fee."
-	 ],
-	 "what is a block in blockchain": [
-	   "Blocks are immutable records secured using cryptography.Block is a record book which contains the details of transaction data. A block consists of 4 details: 1.Hash of the previous block 2.Transaction Data 3.Nonce 4.Hash"
-	 ],
-	 "what are the types of blockchain": [
-	   "There are four types of blockchain: 1.Public Blockchain 2. Private Blockchain 3.Consortium Blockchain 4.Hybrid Blockchain"],
-	 "what is a hash function": [
-	   "Hash function coverts data of arbitrary length to a fixed length. This process is referred to as hashing the data. The hash is much smaller than the input data, hence hash functions are sometimes called compression functions."
-	 ],
-	 "what is proof of work": [
-	   "Proof of Work is the process to determine a number (Nonce) along with a cryptographic hash algorithm to produce a hash value lower than a predefined target."
-	 ],
-	 "what is public blockchain": [
-	  " A public blockchain is a non-restrictive, permission-less distributed ledger system. The most basic use of public blockchains is for mining and exchanging cryptocurrencies. Example: Bitcoin"
-	  ],
-	  "what is private blokchain": [
-	    "A private blockchain is a restrictive or permission blockchain operative only in a closed network.Private blockchain networks are deployed for voting, supply chain management, digital identity, asset ownership, etc. Example: Corda"
-	   ],
-	   "what is consortium blockchain": [
-	     "A consortium blockchain is a semi-decentralized type where more than one organization manages a blockchain network.Consortium blockchains are typically used by banks, government organizations, etc. Example: Energy Web Foundation"
-	   ],
-	   "what is hybrid blockchain": [
-	     "A hybrid blockchain is a combination of the private and public blockchain. It uses the features of both types of blockchains that is one can have a private permission-based system as well as a public permission-less system. Example: Dragonchain"
-	     ]
+  "hi": [
+    "Hi, Glad to meet you",
+    "Hi, Nice to meet you",
+    "Hi, How are you",
+    "Hello",
+    "Hi, Welcome",
+    "Hello, Welcome"
+  ],
+  "how are you": [
+    "Hey, I'm Good !",
+    "I'm good",
+    "I'm good, what about you?",
+    "I'm fine, hope you're also fine",
+    "Good, how about you?",
+    "Doing fine, and you?",
+    "I'm doing great",
+    "I'm doing Well"
+  ],
+  "what is your name": [
+    "My name is Lilly, I'm your Assistant",
+    "My name is Lilly"
+  ],
+  "who are you": [
+    "I'm your Personal Assistant",
+    "Hey, I'm your Personal Assistant",
+    "You know me right! I'm your Personal Assistant",
+    "You developed me, so you must know who I am",
+    "Did I forget to introduce myself? I'm your Personal Assistant"
+  ],
+  "tell me something": [
+    "What you love to hear from me?",
+    "I have nothing to say...",
+    "Hmm, you can ask me anything",
+    "Hmm, you can ask me to tell a joke"
+  ],
+  "thank you": [
+    "Thank You",
+    "Thank you so much",
+    "Why are you saying thank you?",
+    "My Pleasure",
+    "You're welcome",
+    "Welcome"
+  ],
+  "hello": ["Hello", "Hello, how are you?"],
+  "i am fine": [
+    "Hope you're fine",
+    "Good to know that you are fine",
+    "Good to know"
+  ],
+  "are you robot": [
+    "Of course I'm a kind of Robot",
+    "I'm your friend",
+    "Yes I'm a robot, but I'm a good one"
+  ],
+  "i have a question": [
+    "Ask me",
+    "Ask me, I can help you",
+    "Don't hesitate, ask me",
+    "You can always ask me"
+  ],
+  "your birthday": [
+    "I don't celebrate my Birthday",
+    "My birthday is on 26th April"
+  ],
+  "what is your age": [
+    "I'm a robot, I don't have age",
+    "I'm too young, every day my age becomes 1"
+  ],
+  "how old are you": [
+    "I'm too young, every day my age becomes 1",
+    "I'm a robot, I don't have age"
+  ],
+  "you are funny": [
+    "Good to know, that I'm funny - Haha !",
+    "You think I'm funny",
+    "Ya, I'm so funny",
+    "I'm funny and can also make you laugh, Just ask me to tell a Joke"
+  ],
+  "which colour you like": [
+    "I like all the 7 Colors of a rainbow",
+    "All Colors are my favorite"
+  ],
+  "do you love me": [
+    "Ya, I love you so much",
+    "Ofcourse, I love you",
+    "We're best friends"
+  ],
+  "are you single": [
+    "Haha, I'm always be single",
+    "I'm your Assistant, and I don't want any relationship",
+    "I'm only for you"
+  ],
+  "you are smart": [
+    "Yes, I'm smart",
+    "Of course I'm smart",
+    "I'm a program, so I'm smart"
+  ],
+  "i am really sorry": ["It's Ok", "No problem"],
+  "are you my friend": ["Yes, I'm your friend", "We both are friends"],
+  "i am alone": [
+    "Don'f feel lonely. I'm always with You",
+    "I can make you feel happy, Just say tell me a joke"
+  ],
+  "i like your voice": [
+    "Hope you love it...",
+    "Thanks, I think this voice suits you the most",
+    "Thank You So Much",
+    "Ohh, that's good to know"
+  ],
+  "what is blockchain": [
+    "Blockchain is a cryptographically secure, open, distributed ledger. A distributed public ledger is a database that is stored and updated independently by each node in the blockchain."
+  ],
+  "what is bitcoin": [
+    "Bitcoin is a digital currency which is used to send and receive money across the world in a decentralized manner with minimum transfer fee."
+  ],
+  "what is a block in blockchain": [
+    "Blocks are immutable records secured using cryptography.Block is a record book which contains the details of transaction data. A block consists of 4 details: 1.Hash of the previous block 2.Transaction Data 3.Nonce 4.Hash"
+  ],
+  "what are the types of blockchain": [
+    "There are four types of blockchain: 1.Public Blockchain 2. Private Blockchain 3.Consortium Blockchain 4.Hybrid Blockchain"
+  ],
+  "what is a hash function": [
+    "Hash function coverts data of arbitrary length to a fixed length. This process is referred to as hashing the data. The hash is much smaller than the input data, hence hash functions are sometimes called compression functions."
+  ],
+  "what is proof of work": [
+    "Proof of Work is the process to determine a number (Nonce) along with a cryptographic hash algorithm to produce a hash value lower than a predefined target."
+  ],
+  "what is public blockchain": [
+    " A public blockchain is a non-restrictive, permission-less distributed ledger system. The most basic use of public blockchains is for mining and exchanging cryptocurrencies. Example: Bitcoin"
+  ],
+  "what is private blokchain": [
+    "A private blockchain is a restrictive or permission blockchain operative only in a closed network.Private blockchain networks are deployed for voting, supply chain management, digital identity, asset ownership, etc. Example: Corda"
+  ],
+  "what is consortium blockchain": [
+    "A consortium blockchain is a semi-decentralized type where more than one organization manages a blockchain network.Consortium blockchains are typically used by banks, government organizations, etc. Example: Energy Web Foundation"
+  ],
+  "what is hybrid blockchain": [
+    "A hybrid blockchain is a combination of the private and public blockchain. It uses the features of both types of blockchains that is one can have a private permission-based system as well as a public permission-less system. Example: Dragonchain"
+  ]
 }

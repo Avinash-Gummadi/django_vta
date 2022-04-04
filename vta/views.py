@@ -109,6 +109,8 @@ def generateReplay(request):
             	engine = pyttsx3.init()
             except Exception as e:
             	print(e)
+            # voices = engine.getProperty('voices')
+            engine.setProperty('voice', 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0')
             engine.say(reply)
             engine.runAndWait()
             del engine
