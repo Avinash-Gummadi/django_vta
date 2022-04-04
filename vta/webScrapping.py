@@ -262,12 +262,23 @@ def googleSearch(query):
 
 def quiz(query):
 	remove_list = ['test','quiz','exam','assessment','examination','examine','on','in','the','is','for','from',' ']
-	for word in remove_list:
-		if word in query:
-			query = query.replace(word,'')
-	print(query)
-	webbrowser.open("http://127.0.0.1:8000/home/quiz/" + query)
-	return "All the best!"
+	query = query.split(' ')
+	query_temp = query.copy()
+	for word in query: # quiz on python  test test python
+		print("In the for loop",word, word in remove_list)
+		if word in remove_list:
+			print(word)
+			try:
+				query_temp.remove(word)
+			except Exception as e:
+				pass
+	query = ''.join(query_temp)
+	print(query, query_temp)
+	if query.lower() in ['dbms','python','programming','oops']:
+		webbrowser.open("http://127.0.0.1:8000/home/quiz/" + query.lower())
+		return "All the best!"
+	else:
+		return f"Sorry, we  don't have questions for {query} yet."
 # def sendWhatsapp(phone_no='',message=''):
 # 	phone_no = '+91' + str(phone_no)
 # 	webbrowser.open('https://web.whatsapp.com/send?phone='+phone_no+'&text='+message)

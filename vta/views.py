@@ -29,6 +29,7 @@ def uploadquestion(request):
         optionC = request.POST['optionc']
         optionD = request.POST['optiond']
         correct_ans = request.POST['answerid']
+        print(subject_name)
         UploadQuestion.objects.create(subject=subject_name,question=question_text,optionA=optionA,optionB=optionB,optionC=optionC,optionD=optionD,answer=correct_ans)
     return HttpResponse("Not a valid page")
 
@@ -45,7 +46,7 @@ def quiz(request,subject):
             if ans == question.answer:
                 count+=1
         return render(request,'vta/results.html',{'total':count})
-    return render(request,'vta/quizpage.html',{'questions': questions})
+    return render(request,'vta/quizpage.html',{'questions': questions,'subject':subject,'csubject':subject.upper()})
 
 def register(request):
     username_error = ""
