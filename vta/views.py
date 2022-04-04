@@ -45,7 +45,7 @@ def quiz(request,subject):
             print(ans)
             if ans == question.answer:
                 count+=1
-        return render(request,'vta/results.html',{'total':count})
+        return render(request,'vta/results.html',{'total':count,'subject':subject.capitalize()})
     return render(request,'vta/quizpage.html',{'questions': questions,'subject':subject,'csubject':subject.upper()})
 
 def register(request):
