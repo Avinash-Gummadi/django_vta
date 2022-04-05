@@ -45,8 +45,10 @@ def quiz(request,subject):
             print(ans)
             if ans == question.answer:
                 count+=1
-        percentage = (count/len(questions))*100
-        return render(request,'vta/results.html',{'total':count,'percentage':percentage})
+            total_qns = len(questions)
+            wrong_count = total_qns - count
+            percentage = (count/total_qns)*100
+        return render(request,'vta/results.html',{'total_qns':total_qns,'total':count,'wrong_count':wrong_count,'percentage':percentage,'subject':subject.capitalize()})
     return render(request,'vta/quizpage.html',{'questions': questions,'subject':subject,'csubject':subject.upper()})
 
 def register(request):
