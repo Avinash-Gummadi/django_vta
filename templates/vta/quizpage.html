@@ -67,30 +67,6 @@
             />{{question.optionD}}
           </div>
         </div>
-        <!--
-        <input
-          type="radio"
-          name="{{question.id}}"
-          value="B"
-        />{{question.optionB}}
-        <input
-          type="radio"
-          name="{{question.id}}"
-          value="C"
-        />{{question.optionC}}
-        <input
-          type="radio"
-          name="{{question.id}}"
-          value="D"
-        />{{question.optionD}}
-         <button type="button" name="button" id="view_answer">View Answer</button>
-      <p id="show_ans"></p>
-      <script type="text/javascript">
-        $("#view_answer").click(function () {
-          $("#show_ans").text("{{question.answer}}.{{question.optionC}}");
-        });
-      </script> -->
-        <!--  -->
       {% endfor %}
     </form>
       <div class="row m-3 mb-0">
@@ -109,7 +85,6 @@
         <div class="col text-center">
           <p class="question">No Questions Available</p>
         {% endif %}
-      <!-- <button type="submit" name="button" form="quiz_ques_form" class="text-center btn btn-primary">Submit</button> -->
     </div>
   </body>
 </html>

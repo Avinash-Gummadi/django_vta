@@ -20,12 +20,6 @@ def main(text):
 		for idx,head in enumerate(headlines):
 			msg += f'{idx+1}. {head} <br>'
 		return msg
-
-	# if isContain(text, ['youtube','video', 'play']):
-	# 	try:
-	# 		return webScrapping.youtube(text)
-	# 	except Exception as e:
-	# 		return "Desired Result Not Found"
 	if isContain(text, ['search', 'google', 'browse']):
 		return webScrapping.googleSearch(text)
 
@@ -34,10 +28,7 @@ def main(text):
 		print(result[0])
 		print(result[1])
 		if result[1]=='': return
-		return f'<b>{result[0]}</b><br>{result[1]}'
-
-	# print(text)
-	#,'log','value of','root of','math',,'binary','hexadecimal','octal','shift','sin','cos','tan','cosec','sec','cot']):
+		return f'<b>{result[0]}</b><br>{result[1]}'	
 	if isContain(text, ['factorial of ']):
 		num = text.split('factorial of')[1]
 		num = int(num)
