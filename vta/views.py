@@ -7,16 +7,11 @@ from django.contrib.auth.models import User
 from .models import UploadQuestion, User
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-# import gtts
-# Create your views here.
-# def auth(user):
-#    return user.is_authenticated
 
 @login_required(login_url='/')
 def index(request):
     return render(request,'vta/index.html')
-
-# @user_passes_test(auth,login_url='/')
+    
 @login_required(login_url='/')
 def quizpaper(request):
     return render(request,'vta/quizpaper.html')
@@ -77,9 +72,6 @@ def register(request):
         return redirect('/home/')
     return render(request,'register.html',{'username_error':username_error,'email_error':email_error})
 
-# def teacherRegister(request):
-#     return render(request,'teacherRegister.html')
-
 def login_request(request):
     if request.user.is_authenticated:
         return redirect('/home')
@@ -112,7 +104,6 @@ def generateReplay(request):
             	engine = pyttsx3.init()
             except Exception as e:
             	print(e)
-            # voices = engine.getProperty('voices')
             engine.setProperty('voice', 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0')
             engine.say(reply)
             engine.runAndWait()

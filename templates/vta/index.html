@@ -41,12 +41,6 @@
     <link rel="stylesheet" href="{% static 'vta_assets/css/index.css' %}" />
   </head>
   <body>
-    <!-- <h1>Welcome {{ user.person_name }}</h1>
-    {% if user.is_faculty %}
-    <a href="/home/quizpaper/">Add Questions</a><br /><br />
-    {% endif %}
-    <a href="/logout">LogOut</a> -->
-
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container-fluid">
         <a class="navbar-brand" href="/home/">
@@ -72,13 +66,6 @@
 
     <section class="avenue-messenger">
       <div class="menu">
-        <!-- <div class="items">
-          <span>
-            <a href="#" title="Minimize">&mdash;</a><br />
-            <a href="#" title="End Chat">&#10005;</a>
-          </span>
-        </div> -->
-        <!-- <div class="extra_button more_options" style="display: none">...</div> -->
         <span
           class="bi bi-x-circle extra_button close_btn chat-box-toggle"
         ></span>
@@ -291,11 +278,6 @@
           i++;
         }, 1000 + Math.random() * 20 * 100);
       }
-
-      // $(".more_options").click(function () {
-      //   $(".menu .items span").toggleClass("active");
-      //   $(".menu .more_options").toggleClass("active");
-      // });
     </script>
   </body>
 </html>

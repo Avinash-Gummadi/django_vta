@@ -61,7 +61,7 @@ body {
     <form id="question-form" class="mt-3"  method="post">
       {% csrf_token %}
       <div class="container form-div">
-        <h1>Enter Question related data here...</h1>
+        <h1>Add Questions...</h1>
         <div class="col-md">
           <div class="form-floating">
             <select
@@ -174,8 +174,6 @@ body {
     <script type="text/javascript">
       $(document).on("submit", "#question-form", function (e) {
         e.preventDefault();
-        // var data = new FormData($("#retrievedata").get(0));
-        // console.log(data);
         $.ajax({
           type: "POST",
           url: "/home/uploadquestion/",
