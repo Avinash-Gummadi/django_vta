@@ -10,7 +10,7 @@ def isContain(txt, lst):
 	return False
 
 def main(text):
-	if 'my name' in text:return 'Avinash'
+	if 'my name' in text:return 'VTA Group'
 	if isContain(text, ['time','date']):return normalChat.chat(text)
 	if isContain(text, ['morning','evening','noon']) and 'good' in text:return normalChat.chat("good")
 	if isContain(text, ['news']):
