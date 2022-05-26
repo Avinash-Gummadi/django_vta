@@ -65,10 +65,13 @@ def websitesopen(query):
 	return response
 data = json.load(open('vta/extrafiles/NormalChat.json', encoding='utf-8'))
 def reply(query):
+	print(query)
 	if query in data:
 		response =  data[query]
+		print(response)
 	else:
 		result = get_close_matches(query, data.keys(), n=2, cutoff=0.6)
+		print(result)
 		if len(result)==0: return websitesopen(query)
 		return choice(data[result[0]])
 	return choice(response)

@@ -28,7 +28,7 @@ def main(text):
 		print(result[0])
 		print(result[1])
 		if result[1]=='': return
-		return f'<b>{result[0]}</b><br>{result[1]}'	
+		return f'<b>{result[0]}</b><br>{result[1]}'
 	if isContain(text, ['factorial of ']):
 		num = text.split('factorial of')[1]
 		num = int(num)
@@ -55,6 +55,9 @@ def main(text):
 
 	if isContain(text, ['joke','jokes','comedy']):
 		return webScrapping.jokes()
+
+	if isContain(text, ["i'm","I'm",'This is']):
+		return "So glad to meet you. What can I do for you?"
 
 	if isContain(text, ['test','quiz','exam','assessment','examination','examine']):
 		return webScrapping.quiz(text)
